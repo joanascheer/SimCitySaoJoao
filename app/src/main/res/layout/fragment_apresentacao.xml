@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".apresentacao.ApresentacaoFragment"
-    android:layout_margin="@dimen/margin_16">
+    android:layout_margin="@dimen/margin_16"
+    android:id="@+id/navHostFragment">
 
     <ImageView
         android:id="@+id/ivBandeirinhaApresentacao"

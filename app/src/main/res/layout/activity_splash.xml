@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".splash.SplashActivity"
-    android:background="@color/dark_blue">
+    android:background="@color/dark_blue"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
     <ImageView
         android:contentDescription="@string/description_text_bandeirinhas"
