@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SimCity São João</string>
     <string name="description_text_bandeirinhas">Fio preto com 6 bandeirinhas triangulares nas cores azul, amarelo e rosa.</string>
     <string name="app_name_sao_joao">SimCity São João</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="apresentacao_text">Festa junina é algo muito bom! E em SimCity não é diferente! Aqui nesse app você consegue organizar a sua lista de compras para a sua festa junina de maneira fácil e simples. É só cadastrar os produtos de sua receita e se divertir!</string>
+    <string name="ir_para_produtos_text">ir para produtos</string>
+    <string name="cadastro_de_produtos_text">Cadastro de Produtos</string>
+    <string name="nome_do_produto_hint">Nome do produto</string>
+    <string name="quantidade_do_produto_hint">Quantidade do produto</string>
+    <string name="valor_do_produto_hint">Valor (unitário) do produto</string>
+    <string name="receita_hint">Receita</string>
+    <string name="cadastrar_produto_txt_btn">cadastrar novo produto</string>
+    <string name="ver_produtos_txt_btn">ver produtos</string>
+    <string name="valor_total_txt_btn">valor total</string>
+    <string name="produtos_cadastrados_text">Produtos Cadastrados</string>
+    <string name="carrinho_compras_description">Carrinho de compras vermelho com rodinhas pretas</string>
+    <string name="nome_do_produto_text">Nome do Produto</string>
+    <string name="quantidade_txt">Quantidade:</string>
+    <string name="valor_unitario_txt">Valor unitário:</string>
+    <string name="receita_txt">Receita:</string>
+    <string name="coracao_vermelho_img_description">Coração vermelho para favoritar seus produtos</string>
+    <string name="valor_total_txt">O valor total de todos os produtos é de R$</string>
+    <string name="cadastrar_novo_produto_btn_txt">cadastrar novo produto</string>
+    <string name="nome_produto_txt_cv">Nome produto</string>
+    <string name="quantidade_cv">Quantidade -</string>
 </resources>

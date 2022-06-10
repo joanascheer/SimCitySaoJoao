@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/margin_16"
     tools:context=".produtos.DetalhesDeProdutosFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/ivCarrinhoComprasDetalhe"
+        android:layout_width="@dimen/size_80"
+        android:layout_height="@dimen/size_80"
+        android:contentDescription="@string/carrinho_compras_description"
+        android:src="@drawable/carrinho_de_compras"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tvNomeProdutoTelaDetalhes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/ivCarrinhoComprasDetalhe"
+        app:layout_constraintTop_toTopOf="@id/ivCarrinhoComprasDetalhe"
+        app:layout_constraintBottom_toBottomOf="@id/ivCarrinhoComprasDetalhe"
+        android:layout_marginStart="10dp"
+        android:textSize="@dimen/text_size_16"
+        android:textStyle="bold"
+        android:text="@string/nome_do_produto_text" />
+
+    <TextView
+        android:id="@+id/tvQuantidadeProdutoTelaDetalhes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quantidade_txt"
+        app:layout_constraintTop_toBottomOf="@id/ivCarrinhoComprasDetalhe"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginVertical="@dimen/margin_30"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_12"/>
+
+    <TextView
+        android:id="@+id/tvValorProdutoTelaDetalhes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/valor_unitario_txt"
+        android:layout_marginVertical="@dimen/margin_8"
+        app:layout_constraintTop_toBottomOf="@id/tvQuantidadeProdutoTelaDetalhes"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_12"/>
+
+    <TextView
+        android:id="@+id/tvReceitaProdutoTelaDetalhes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/receita_txt"
+        android:layout_marginVertical="@dimen/margin_8"
+        app:layout_constraintTop_toBottomOf="@id/tvValorProdutoTelaDetalhes"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_12"/>
+
+    <ImageButton
+        android:id="@+id/btnFavoritar"
+        android:layout_width="@dimen/size_40"
+        android:layout_height="@dimen/size_40"
+        android:contentDescription="@string/coracao_vermelho_img_description"
+        android:src="@drawable/ic_favoritar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

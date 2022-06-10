@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvItemLista"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_8">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivCarrinhoComprasCv"
+            android:layout_width="@dimen/size_50"
+            android:layout_height="@dimen/size_50"
+            android:contentDescription="@string/carrinho_compras_description"
+            android:src="@drawable/carrinho_de_compras"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvQuantidadeProdutosCv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quantidade_cv"
+            android:textSize="@dimen/text_size_14"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/margin_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivCarrinhoComprasCv"
+            app:layout_constraintTop_toTopOf="@id/ivCarrinhoComprasCv" />
+
+        <TextView
+            android:id="@+id/tvNomeProdutosCv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nome_produto_txt_cv"
+            android:textSize="@dimen/text_size_14"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/tvQuantidadeProdutosCv"
+            app:layout_constraintTop_toTopOf="@id/tvQuantidadeProdutosCv"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

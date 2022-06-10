@@ -38,7 +38,19 @@
         android:label="fragment_detalhes_de_produtos"
         tools:layout="@layout/fragment_detalhes_de_produtos" >
         <action
-            android:id="@+id/action_detalhesDeProdutosFragment_to_apresentacaoFragment"
-            app:destination="@id/apresentacaoFragment" />
+            android:id="@+id/action_detalhesDeProdutosFragment_to_valorTotalFragment"
+            app:destination="@id/valorTotalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/valorTotalFragment"
+        android:name="br.com.zup.simcitysaojoao.produtos.ValorTotalFragment"
+        android:label="fragment_valor_total"
+        tools:layout="@layout/fragment_valor_total" >
+        <action
+            android:id="@+id/action_valorTotalFragment_to_cadastroDeProdutosFragment"
+            app:destination="@id/cadastroDeProdutosFragment" />
+        <action
+            android:id="@+id/action_valorTotalFragment_to_listaDeProdutosFragment"
+            app:destination="@id/listaDeProdutosFragment" />
     </fragment>
 </navigation>

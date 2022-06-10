@@ -1,14 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produtos.CadastroDeProdutosFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".produtos.CadastroDeProdutosFragment"
+    android:layout_margin="@dimen/margin_16">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tvCadastroProdutos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp"
+        android:text="@string/cadastro_de_produtos_text"
+        android:textSize="@dimen/text_size_16"
+        android:textStyle="bold"
+        android:layout_marginVertical="@dimen/margin_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/etNomeProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nome_do_produto_hint"
+        android:textSize="@dimen/text_size_12"
+        android:layout_marginVertical="@dimen/margin_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCadastroProdutos"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/etQuantidadeProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/quantidade_do_produto_hint"
+        android:textSize="@dimen/text_size_12"
+        android:layout_marginVertical="@dimen/margin_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNomeProduto"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/etValorProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/valor_do_produto_hint"
+        android:textSize="@dimen/text_size_12"
+        android:layout_marginVertical="@dimen/margin_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etQuantidadeProduto"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/etReceitaProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/receita_hint"
+        android:textSize="@dimen/text_size_12"
+        android:layout_marginVertical="@dimen/margin_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etValorProduto"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/btnCadastrarProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_20"
+        app:layout_constraintTop_toBottomOf="@id/etReceitaProduto"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/cadastrar_produto_txt_btn"
+        android:backgroundTint="@color/red"/>
+
+    <Button
+        android:id="@+id/btnVerProdutos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_20"
+        app:layout_constraintTop_toBottomOf="@id/btnCadastrarProduto"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/ver_produtos_txt_btn"
+        android:backgroundTint="@color/green"/>
+
+    <Button
+        android:id="@+id/btnValorTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_20"
+        app:layout_constraintTop_toBottomOf="@id/btnVerProdutos"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/valor_total_txt_btn"
+        android:backgroundTint="@color/dark_blue"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
