@@ -1,3 +1,3 @@
 package br.com.zup.simcitysaojoao
 
-const val PRODUCT_KEY = "Produto"
+const val LIST_KEY = "Lista"

@@ -22,3 +22,5 @@ class ValorTotalFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 }
+
+// SE NAO TIVER NADA NA LISTA, DIZER QUE NAO TEM
