@@ -7,9 +7,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/fogueira"
+        android:icon="@mipmap/fogueiraicon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/fogueira"
+        android:roundIcon="@mipmap/fogueiraicon"
         android:supportsRtl="true"
         android:theme="@style/Theme.SimCitySãoJoão"
         tools:targetApi="31">

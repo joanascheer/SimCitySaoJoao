@@ -2,4 +2,6 @@
     <string name="app_name">SimCity São João</string>
     <string name="description_text_bandeirinhas">Fio preto com 6 bandeirinhas triangulares nas cores azul, amarelo e rosa.</string>
     <string name="app_name_sao_joao">SimCity São João</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

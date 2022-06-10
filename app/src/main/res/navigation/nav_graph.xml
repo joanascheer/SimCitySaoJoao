@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/apresentacaoFragment">
+
+    <fragment
+        android:id="@+id/apresentacaoFragment"
+        android:name="br.com.zup.simcitysaojoao.apresentacao.ApresentacaoFragment"
+        android:label="fragment_apresentacao"
+        tools:layout="@layout/fragment_apresentacao" >
+        <action
+            android:id="@+id/action_apresentacaoFragment_to_cadastroDeProdutosFragment"
+            app:destination="@id/cadastroDeProdutosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastroDeProdutosFragment"
+        android:name="br.com.zup.simcitysaojoao.produtos.CadastroDeProdutosFragment"
+        android:label="fragment_cadastro_de_produtos"
+        tools:layout="@layout/fragment_cadastro_de_produtos" >
+        <action
+            android:id="@+id/action_cadastroDeProdutosFragment_to_listaDeProdutosFragment"
+            app:destination="@id/listaDeProdutosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaDeProdutosFragment"
+        android:name="br.com.zup.simcitysaojoao.produtos.ListaDeProdutosFragment"
+        android:label="fragment_lista_de_produtos"
+        tools:layout="@layout/fragment_lista_de_produtos" >
+        <action
+            android:id="@+id/action_listaDeProdutosFragment_to_detalhesDeProdutosFragment"
+            app:destination="@id/detalhesDeProdutosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalhesDeProdutosFragment"
+        android:name="br.com.zup.simcitysaojoao.produtos.DetalhesDeProdutosFragment"
+        android:label="fragment_detalhes_de_produtos"
+        tools:layout="@layout/fragment_detalhes_de_produtos" >
+        <action
+            android:id="@+id/action_detalhesDeProdutosFragment_to_apresentacaoFragment"
+            app:destination="@id/apresentacaoFragment" />
+    </fragment>
+</navigation>
