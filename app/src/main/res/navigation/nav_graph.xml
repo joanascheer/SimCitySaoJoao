@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_cadastroDeProdutosFragment_to_listaDeProdutosFragment"
             app:destination="@id/listaDeProdutosFragment" />
+        <action
+            android:id="@+id/action_cadastroDeProdutosFragment_to_valorTotalFragment"
+            app:destination="@id/valorTotalFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaDeProdutosFragment"

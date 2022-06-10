@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -25,7 +26,16 @@ class CadastroDeProdutosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adicionarProdutosLista()
+        binding.btnCadastrarProduto.setOnClickListener {
+            adicionarProdutosLista()
+        }
+        binding.btnVerProdutos.setOnClickListener {
+            NavHostFragment.findNavController(this).navigate(R.id.action_cadastroDeProdutosFragment_to_listaDeProdutosFragment)
+        }
+        binding.btnValorTotal.setOnClickListener {
+            NavHostFragment.findNavController(this).navigate(R.id.action_cadastroDeProdutosFragment_to_valorTotalFragment)
+        }
+
     }
 
     private fun enviarListaDeProdutos(listaDeProdutos: MutableList<Produto>) {
@@ -58,6 +68,11 @@ class CadastroDeProdutosFragment : Fragment() {
         if (produto != null) {
             listaProdutos.add(produto)
             enviarListaDeProdutos(listaProdutos)
+            Toast.makeText(
+                context,
+                "Produto adicionado com sucesso!",
+                Toast.LENGTH_LONG
+            ).show()
         } else {
             exibirMensagemErro()
         }
