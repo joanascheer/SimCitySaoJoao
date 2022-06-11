@@ -8,7 +8,7 @@ import br.com.zup.simcitysaojoao.model.Produto
 
 class ProdutoAdapter(
     private var listaProdutos: MutableList<Produto>,
-//private val clickProduto:(produto: Produto) -> Unit,
+    private val clickProduto:(produto: Produto) -> Unit,
 ) : RecyclerView.Adapter<ProdutoAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,7 +19,9 @@ class ProdutoAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produto = listaProdutos[position]
         holder.exibirDados(produto)
-        //aqui vai a função de click no item
+        holder.binding.cvItemLista.setOnClickListener {
+            clickProduto(produto)
+        }
     }
 
     override fun getItemCount(): Int = listaProdutos.size
