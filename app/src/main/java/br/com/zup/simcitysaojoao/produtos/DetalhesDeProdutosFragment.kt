@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import br.com.zup.simcitysaojoao.MSG_PRODUTO_ADICIONADO
+import br.com.zup.simcitysaojoao.MSG_PRODUTO_FAVORITADO
 import br.com.zup.simcitysaojoao.PRODUCT_KEY
 import br.com.zup.simcitysaojoao.databinding.FragmentDetalhesDeProdutosBinding
 import br.com.zup.simcitysaojoao.model.Produto
@@ -30,7 +32,7 @@ class DetalhesDeProdutosFragment : Fragment() {
     }
 
     private fun favoritarProduto() {
-        Toast.makeText(context, "Produto adicionado aos favoritos!",2000)
+        Toast.makeText(context, MSG_PRODUTO_FAVORITADO,Toast.LENGTH_LONG).show()
     }
 
     private fun recuperarDadosProduto() {
