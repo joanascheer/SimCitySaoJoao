@@ -24,5 +24,6 @@
     <string name="valor_total_txt">O valor total de todos os produtos é de R$</string>
     <string name="cadastrar_novo_produto_btn_txt">cadastrar novo produto</string>
     <string name="nome_produto_txt_cv">Nome produto</string>
-    <string name="quantidade_cv">Quantidade -</string>
+    <string name="quantidade_cv">Quantidade</string>
+    <string name="divisor_txt">-</string>
 </resources>

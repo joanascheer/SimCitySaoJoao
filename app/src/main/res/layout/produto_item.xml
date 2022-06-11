@@ -33,6 +33,16 @@
             app:layout_constraintTop_toTopOf="@id/ivCarrinhoComprasCv" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_12"
+            android:text="@string/divisor_txt"
+            app:layout_constraintStart_toEndOf="@id/tvQuantidadeProdutosCv"
+            app:layout_constraintEnd_toStartOf="@id/tvNomeProdutosCv"
+            app:layout_constraintTop_toTopOf="@+id/tvNomeProdutosCv"/>
+
+        <TextView
             android:id="@+id/tvNomeProdutosCv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
