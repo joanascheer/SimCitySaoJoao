@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import br.com.zup.simcitysaojoao.PRODUCT_KEY
 import br.com.zup.simcitysaojoao.databinding.FragmentDetalhesDeProdutosBinding
@@ -22,6 +23,14 @@ class DetalhesDeProdutosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recuperarDadosProduto()
+
+        binding.btnFavoritar.setOnClickListener {
+            favoritarProduto()
+        }
+    }
+
+    private fun favoritarProduto() {
+        Toast.makeText(context, "Produto adicionado aos favoritos!",2000)
     }
 
     private fun recuperarDadosProduto() {
