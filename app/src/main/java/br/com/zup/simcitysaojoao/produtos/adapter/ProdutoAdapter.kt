@@ -37,7 +37,7 @@ class ProdutoAdapter(
     class ViewHolder(val binding: ProdutoItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun exibirDados(produto: Produto) {
-            binding.tvQuantidadeProdutosCv.text = produto.getQuantidade()
+            binding.tvQuantidadeProdutosCv.text = produto.getQuantidade().toString()
             binding.tvNomeProdutosCv.text = produto.getNome()
         }
 

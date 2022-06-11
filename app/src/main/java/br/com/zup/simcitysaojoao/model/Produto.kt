@@ -6,8 +6,8 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 class Produto(
     private val nome: String,
-    private val quantidade: String,
-    private val valorUnitario: String,
+    private val quantidade: Int,
+    private val valorUnitario: Double,
     private val receita: String
 ) : Parcelable {
     fun getNome() = this.nome

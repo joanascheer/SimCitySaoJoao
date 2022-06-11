@@ -8,13 +8,18 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
-import br.com.zup.simcitysaojoao.PRODUCT_KEY
-import br.com.zup.simcitysaojoao.R
+import br.com.zup.simcitysaojoao.*
 import br.com.zup.simcitysaojoao.databinding.FragmentCadastroDeProdutosBinding
 import br.com.zup.simcitysaojoao.model.Produto
 
 class CadastroDeProdutosFragment : Fragment() {
     private lateinit var binding: FragmentCadastroDeProdutosBinding
+
+    private lateinit var nome: String
+    private lateinit var quantidade: String
+    private lateinit var valor: String
+    private lateinit var receita: String
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,30 +42,40 @@ class CadastroDeProdutosFragment : Fragment() {
             NavHostFragment.findNavController(this)
                 .navigate(R.id.action_cadastroDeProdutosFragment_to_valorTotalFragment)
         }
-
     }
 
     private fun enviarProduto() {
+        mensagemSucesso()
+        val produto = recuperarInformacoes()
+        if (produto != null) {
+            val bundle = bundleOf(PRODUCT_KEY to produto)
+            NavHostFragment.findNavController(this)
+                .navigate(R.id.action_cadastroDeProdutosFragment_to_listaDeProdutosFragment, bundle)
+        }
+    }
+
+    private fun mensagemSucesso() {
         Toast.makeText(
             context,
-            "Produto adicionado com sucesso!",
+            MSG_PRODUTO_ADICIONADO,
             Toast.LENGTH_LONG
         ).show()
-        val produto = recuperarInformacoes()
-        val bundle = bundleOf(PRODUCT_KEY to produto)
-        NavHostFragment.findNavController(this)
-            .navigate(R.id.action_cadastroDeProdutosFragment_to_listaDeProdutosFragment, bundle)
     }
 
     private fun recuperarInformacoes(): Produto? {
-        val nomeProduto = binding.etNomeProduto.text.toString()
-        val quantidadeProduto = binding.etQuantidadeProduto.toString()
-        val valorUnitarioProduto = binding.etValorProduto.text.toString()
-        val receitaProduto = binding.etReceitaProduto.text.toString()
+        nome = binding.etNomeProduto.text.toString()
+        quantidade = binding.etQuantidadeProduto.text.toString()
+        valor = binding.etValorProduto.text.toString()
+        receita = binding.etReceitaProduto.text.toString()
 
-        if (nomeProduto.isNotEmpty() && quantidadeProduto.isNotEmpty() && valorUnitarioProduto.isNotEmpty() && receitaProduto.isNotEmpty()) {
+        if (nome.isNotEmpty() && quantidade.isNotEmpty() && valor.isNotEmpty() && receita.isNotEmpty()) {
             limparCampoInformacoes()
-            return Produto(nomeProduto, quantidadeProduto, valorUnitarioProduto, receitaProduto)
+            return Produto(
+                nome,
+                quantidade.toInt(),
+                valor.toDouble(),
+                receita
+            )
         } else {
             exibirMensagemErro()
         }
@@ -75,9 +90,9 @@ class CadastroDeProdutosFragment : Fragment() {
     }
 
     private fun exibirMensagemErro() {
-        binding.etNomeProduto.error = "Por favor, insira um nome para seu produto"
-        binding.etQuantidadeProduto.error = "Por favor, insira uma quantidade válida"
-        binding.etValorProduto.error = "Por favor, insira um valor válido para o seu produto"
-        binding.etReceitaProduto.error = "Insira uma receita para o seu produto"
+        binding.etNomeProduto.error = MSG_ERRO_NOME_PRODUTO
+        binding.etQuantidadeProduto.error = MSG_ERRO_QUANTIDADE_PRODUTO
+        binding.etValorProduto.error = MSG_ERRO_VALOR_PRODUTO
+        binding.etReceitaProduto.error = MSG_ERRO_RECEITA_PRODUTO
     }
 }

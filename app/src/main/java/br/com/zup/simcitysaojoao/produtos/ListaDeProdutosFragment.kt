@@ -31,26 +31,23 @@ class ListaDeProdutosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        exibirRecyclerView()
+        inserirProdutoNaLista()
     }
 
-
-    private fun recuperarProdutoEnviado(): Produto? = arguments?.getParcelable<Produto>(PRODUCT_KEY)
-
     private fun inserirProdutoNaLista(): MutableList<Produto> {
-        val produto = recuperarProdutoEnviado()
+        val produto = arguments?.getParcelable<Produto>(PRODUCT_KEY)
         val listaProdutos = mutableListOf<Produto>()
         if (produto != null) {
             listaProdutos.add(produto)
         }
         produtoAdapter.atualizarListaProdutos(listaProdutos)
+        exibirRecyclerView()
         return listaProdutos
     }
 
     private fun exibirRecyclerView() {
         binding.rvListaProdutos.adapter = produtoAdapter
         binding.rvListaProdutos.layoutManager = LinearLayoutManager(context)
-        inserirProdutoNaLista()
     }
 
 }
