@@ -8,3 +8,4 @@ const val MSG_ERRO_VALOR_PRODUTO = "Por favor, insira um valor válido para o se
 const val MSG_ERRO_RECEITA_PRODUTO = "Insira uma receita para o seu produto"
 const val MSG_PRODUTO_ADICIONADO = "Produto adicionado com sucesso!"
 const val MSG_PRODUTO_FAVORITADO = "Produto favoritado!"
+const val PRODUTOS = "Produtos"

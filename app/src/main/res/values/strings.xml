@@ -25,4 +25,6 @@
     <string name="nome_produto_txt_cv">Nome produto</string>
     <string name="quantidade_cv">Quantidade</string>
     <string name="divisor_txt">-</string>
+    <string name="voltar_txt">Voltar</string>
+    <string name="btn_voltar_txt_description">Seta branca á esquerda indicando um botão de voltar à tela anterior</string>
 </resources>

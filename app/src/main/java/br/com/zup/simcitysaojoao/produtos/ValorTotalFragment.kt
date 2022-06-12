@@ -24,10 +24,12 @@ class ValorTotalFragment : Fragment() {
     ): View {
         binding = FragmentValorTotalBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val listaProdutos = arguments?.getParcelableArrayList<Produto>(LIST_KEY)
         calcularValorTotal(listaProdutos)
 
