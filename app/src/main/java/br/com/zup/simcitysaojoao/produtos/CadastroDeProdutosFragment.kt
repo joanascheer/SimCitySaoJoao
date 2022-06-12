@@ -49,20 +49,24 @@ class CadastroDeProdutosFragment : Fragment() {
 
     //
     private fun adidionarProdutoLista() {
+        mensagemSucesso()
         recuperarInformacoes()
+if (verificarCampos()) {
+    val produto = Produto(
+        nome,
+        quantidade.toInt(),
+        valor.toDouble(),
+        receita
+    )
+    listaProdutos.add(produto)
+    limparCampoInformacoes()
 
-        val produto = Produto(
-            nome,
-            quantidade.toInt(),
-            valor.toDouble(),
-            receita
-        )
-        listaProdutos.add(produto)
-        limparCampoInformacoes()
+}
+
     }
 
     private fun clickBtnAdicionar() {
-        mensagemSucesso()
+
         adidionarProdutoLista()
     }
 
@@ -101,6 +105,7 @@ class CadastroDeProdutosFragment : Fragment() {
         receita = binding.etReceitaProduto.text.toString()
 
 
+
 //        if (nome.isNotEmpty() && quantidade.isNotEmpty() && valor.isNotEmpty() && receita.isNotEmpty()) {
 //            limparCampoInformacoes()
 //            return Produto(
@@ -116,21 +121,26 @@ class CadastroDeProdutosFragment : Fragment() {
     }
 
     //
-    private fun verificarCampos() {
+    private fun verificarCampos(): Boolean {
         when {
             nome.isEmpty() -> {
                 binding.etNomeProduto.error = MSG_ERRO_NOME_PRODUTO
+                return false
             }
             quantidade.isEmpty() -> {
                 binding.etQuantidadeProduto.error = MSG_ERRO_QUANTIDADE_PRODUTO
+                return false
             }
             valor.isEmpty() -> {
                 binding.etValorProduto.error = MSG_ERRO_VALOR_PRODUTO
+                return false
             }
             receita.isEmpty() -> {
                 binding.etReceitaProduto.error = MSG_ERRO_RECEITA_PRODUTO
+                return false
             }
         }
+        return true
     }
 
     private fun limparCampoInformacoes() {

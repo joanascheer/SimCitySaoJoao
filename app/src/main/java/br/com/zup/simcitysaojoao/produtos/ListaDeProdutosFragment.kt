@@ -1,7 +1,6 @@
 package br.com.zup.simcitysaojoao.produtos
 
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,14 +8,12 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import br.com.zup.simcitysaojoao.LIST_KEY
 import br.com.zup.simcitysaojoao.PRODUCT_KEY
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentListaDeProdutosBinding
 import br.com.zup.simcitysaojoao.model.Produto
 import br.com.zup.simcitysaojoao.produtos.adapter.ProdutoAdapter
-import java.util.concurrent.RecursiveTask
 
 class ListaDeProdutosFragment : Fragment() {
     private lateinit var binding: FragmentListaDeProdutosBinding
@@ -62,7 +59,7 @@ class ListaDeProdutosFragment : Fragment() {
     }
 
     private fun receberListaEnviada() {
-        var listaDeProdutos = arguments?.getParcelableArrayList<Produto>(LIST_KEY)
+        val listaDeProdutos = arguments?.getParcelableArrayList<Produto>(LIST_KEY)
         if (listaDeProdutos!=null) {
             atualizarListaProdutos(listaDeProdutos)
         }
