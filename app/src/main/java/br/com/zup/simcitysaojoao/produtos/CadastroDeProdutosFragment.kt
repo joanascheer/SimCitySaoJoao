@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.compose.runtime.ReusableComposeNode
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -20,6 +21,9 @@ class CadastroDeProdutosFragment : Fragment() {
     private lateinit var valor: String
     private lateinit var receita: String
 
+    //
+    private val listaProdutos = mutableListOf<Produto>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,27 +36,55 @@ class CadastroDeProdutosFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnCadastrarProduto.setOnClickListener {
-            enviarProduto()
+            //
+            clickBtnAdicionar()
         }
         binding.btnVerProdutos.setOnClickListener {
-            NavHostFragment.findNavController(this)
-                .navigate(R.id.action_cadastroDeProdutosFragment_to_listaDeProdutosFragment)
+            clickBtnVerLista()
         }
         binding.btnValorTotal.setOnClickListener {
-            NavHostFragment.findNavController(this)
-                .navigate(R.id.action_cadastroDeProdutosFragment_to_valorTotalFragment)
+            clickBtnValorTotal()
         }
     }
 
-    private fun enviarProduto() {
-        mensagemSucesso()
-        val produto = recuperarInformacoes()
-        if (produto != null) {
-            val bundle = bundleOf(PRODUCT_KEY to produto)
-            NavHostFragment.findNavController(this)
-                .navigate(R.id.action_cadastroDeProdutosFragment_to_listaDeProdutosFragment, bundle)
-        }
+    //
+    private fun adidionarProdutoLista() {
+        recuperarInformacoes()
+
+        val produto = Produto(
+            nome,
+            quantidade.toInt(),
+            valor.toDouble(),
+            receita
+        )
+        listaProdutos.add(produto)
+        limparCampoInformacoes()
     }
+
+    private fun clickBtnAdicionar() {
+        mensagemSucesso()
+        adidionarProdutoLista()
+    }
+
+    private fun clickBtnVerLista() {
+        val bundle = bundleOf(LIST_KEY to listaProdutos)
+        NavHostFragment.findNavController(this)
+            .navigate(R.id.action_cadastroDeProdutosFragment_to_listaDeProdutosFragment, bundle)
+    }
+
+    private fun clickBtnValorTotal() {
+        //aqui vou mandar alguma coisa para calcular la. acho
+        NavHostFragment.findNavController(this)
+            .navigate(R.id.action_cadastroDeProdutosFragment_to_valorTotalFragment)
+    }
+
+//    private fun enviarProduto() {
+//        mensagemSucesso()
+//        val produto = recuperarInformacoes()
+//        val bundle = bundleOf(PRODUCT_KEY to produto)
+//        NavHostFragment.findNavController(this)
+//            .navigate(R.id.action_cadastroDeProdutosFragment_to_listaDeProdutosFragment, bundle)
+//    }
 
     private fun mensagemSucesso() {
         Toast.makeText(
@@ -62,24 +94,43 @@ class CadastroDeProdutosFragment : Fragment() {
         ).show()
     }
 
-    private fun recuperarInformacoes(): Produto? {
+    private fun recuperarInformacoes() {
         nome = binding.etNomeProduto.text.toString()
         quantidade = binding.etQuantidadeProduto.text.toString()
         valor = binding.etValorProduto.text.toString()
         receita = binding.etReceitaProduto.text.toString()
 
-        if (nome.isNotEmpty() && quantidade.isNotEmpty() && valor.isNotEmpty() && receita.isNotEmpty()) {
-            limparCampoInformacoes()
-            return Produto(
-                nome,
-                quantidade.toInt(),
-                valor.toDouble(),
-                receita
-            )
-        } else {
-            exibirMensagemErro()
+
+//        if (nome.isNotEmpty() && quantidade.isNotEmpty() && valor.isNotEmpty() && receita.isNotEmpty()) {
+//            limparCampoInformacoes()
+//            return Produto(
+//                nome,
+//                quantidade.toInt(),
+//                valor.toDouble(),
+//                receita
+//            )
+//        } else {
+//            exibirMensagemErro()
+//        }
+//        return null
+    }
+
+    //
+    private fun verificarCampos() {
+        when {
+            nome.isEmpty() -> {
+                binding.etNomeProduto.error = MSG_ERRO_NOME_PRODUTO
+            }
+            quantidade.isEmpty() -> {
+                binding.etQuantidadeProduto.error = MSG_ERRO_QUANTIDADE_PRODUTO
+            }
+            valor.isEmpty() -> {
+                binding.etValorProduto.error = MSG_ERRO_VALOR_PRODUTO
+            }
+            receita.isEmpty() -> {
+                binding.etReceitaProduto.error = MSG_ERRO_RECEITA_PRODUTO
+            }
         }
-        return null
     }
 
     private fun limparCampoInformacoes() {
@@ -89,10 +140,4 @@ class CadastroDeProdutosFragment : Fragment() {
         binding.etReceitaProduto.text.clear()
     }
 
-    private fun exibirMensagemErro() {
-        binding.etNomeProduto.error = MSG_ERRO_NOME_PRODUTO
-        binding.etQuantidadeProduto.error = MSG_ERRO_QUANTIDADE_PRODUTO
-        binding.etValorProduto.error = MSG_ERRO_VALOR_PRODUTO
-        binding.etReceitaProduto.error = MSG_ERRO_RECEITA_PRODUTO
-    }
 }

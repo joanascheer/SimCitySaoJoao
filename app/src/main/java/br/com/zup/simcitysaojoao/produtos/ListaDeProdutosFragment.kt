@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import br.com.zup.simcitysaojoao.LIST_KEY
 import br.com.zup.simcitysaojoao.PRODUCT_KEY
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentListaDeProdutosBinding
@@ -34,7 +35,8 @@ class ListaDeProdutosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        inserirProdutoNaLista()
+        receberListaEnviada()
+        //inserirProdutoNaLista()
     }
 
     private fun inserirProdutoNaLista(): MutableList<Produto> {
@@ -57,6 +59,18 @@ class ListaDeProdutosFragment : Fragment() {
         val bundle = bundleOf(PRODUCT_KEY to produto)
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_listaDeProdutosFragment_to_detalhesDeProdutosFragment, bundle)
+    }
+
+    private fun receberListaEnviada() {
+        var listaDeProdutos = arguments?.getParcelableArrayList<Produto>(LIST_KEY)
+        if (listaDeProdutos!=null) {
+            atualizarListaProdutos(listaDeProdutos)
+        }
+    }
+
+    fun atualizarListaProdutos(listaDeProdutos: MutableList<Produto>) {
+       produtoAdapter.atualizarListaProdutos(listaDeProdutos)
+        exibirRecyclerView()
     }
 
 }

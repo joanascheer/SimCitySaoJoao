@@ -1,7 +1,7 @@
 package br.com.zup.simcitysaojoao
 
 const val PRODUCT_KEY = "PRODUTO"
-const val PRODUCT_KEY_2 = "PRODUTO"
+const val LIST_KEY = "Lista"
 const val MSG_ERRO_NOME_PRODUTO = "Por favor, insira um nome para seu produto"
 const val MSG_ERRO_QUANTIDADE_PRODUTO = "Por favor, insira uma quantidade válida"
 const val MSG_ERRO_VALOR_PRODUTO = "Por favor, insira um valor válido para o seu produto"
