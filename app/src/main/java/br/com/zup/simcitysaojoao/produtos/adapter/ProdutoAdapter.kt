@@ -8,7 +8,7 @@ import br.com.zup.simcitysaojoao.model.Produto
 
 class ProdutoAdapter(
     private var listaProdutos: ArrayList<Produto>,
-    private val clickProduto:(produto: Produto) -> Unit,
+    private val clickProduto: (produto: Produto) -> Unit,
 ) : RecyclerView.Adapter<ProdutoAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,26 +26,19 @@ class ProdutoAdapter(
 
     override fun getItemCount(): Int = listaProdutos.size
 
-    //
     fun atualizarListaProdutos(novaListaProduto: ArrayList<Produto>) {
         if (listaProdutos.size == 0) {
-            //listaProdutos = novaListaProduto
             listaProdutos.addAll(novaListaProduto)
         }
         notifyDataSetChanged()
     }
 
-    /*quando eu clico em cadastrar produto na tela final ele precisa levar junto a lista para tela cadastro
-    * ou mandar pra lista de produto frag e atualizar*/
-
     class ViewHolder(val binding: ProdutoItemBinding) : RecyclerView.ViewHolder(binding.root) {
-
         fun exibirDados(produto: Produto) {
             binding.tvQuantidadeProdutosCv.text = produto.getQuantidade().toString()
             binding.tvNomeProdutosCv.text = produto.getNome()
 
         }
-
     }
 
 }

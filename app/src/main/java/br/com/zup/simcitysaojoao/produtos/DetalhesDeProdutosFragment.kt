@@ -31,7 +31,7 @@ class DetalhesDeProdutosFragment : Fragment() {
     }
 
     private fun favoritarProduto() {
-        Toast.makeText(context, MSG_PRODUTO_FAVORITADO,Toast.LENGTH_LONG).show()
+        Toast.makeText(context, MSG_PRODUTO_FAVORITADO, Toast.LENGTH_LONG).show()
     }
 
     private fun recuperarDadosProduto() {
@@ -43,5 +43,4 @@ class DetalhesDeProdutosFragment : Fragment() {
             binding.tvReceitaProdutoTelaDetalhes.text = produto.getReceita()
         }
     }
-
 }

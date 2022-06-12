@@ -31,5 +31,4 @@ class ApresentacaoFragment : Fragment() {
             R.id.action_apresentacaoFragment_to_cadastroDeProdutosFragment
         )
     }
-
 }

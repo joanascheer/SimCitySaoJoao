@@ -12,10 +12,8 @@ import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentValorTotalBinding
 import br.com.zup.simcitysaojoao.model.Produto
 
-
 class ValorTotalFragment : Fragment() {
     private lateinit var binding: FragmentValorTotalBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,7 +21,6 @@ class ValorTotalFragment : Fragment() {
     ): View {
         binding = FragmentValorTotalBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,7 +31,7 @@ class ValorTotalFragment : Fragment() {
         calcularValorTotal(listaProdutos)
 
         binding.btnCadastrarNovoProduto.setOnClickListener {
-            navegarParaCadastroProdutos(listaProdutos)
+            navegarParaCadastroProdutos()
         }
 
         binding.btnVerProdutos.setOnClickListener {
@@ -42,8 +39,7 @@ class ValorTotalFragment : Fragment() {
         }
     }
 
-    private fun navegarParaCadastroProdutos(listaProdutos: ArrayList<Produto>?) {
-        val bundle = bundleOf(LIST_KEY to listaProdutos)
+    private fun navegarParaCadastroProdutos() {
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_valorTotalFragment_to_cadastroDeProdutosFragment)
     }
@@ -64,5 +60,4 @@ class ValorTotalFragment : Fragment() {
     }
 
     private fun formatarValorTotal(valorTotal: Double) = "%.2f".format(valorTotal)
-
 }
