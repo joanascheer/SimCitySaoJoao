@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".apresentacao.ApresentacaoFragment"
     android:layout_margin="@dimen/margin_16"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     android:id="@+id/navHostFragment">
 
     <ImageView

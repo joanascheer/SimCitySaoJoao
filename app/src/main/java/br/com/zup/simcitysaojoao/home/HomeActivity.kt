@@ -4,12 +4,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
-import br.com.zup.simcitysaojoao.PRODUCT_KEY
 import br.com.zup.simcitysaojoao.PRODUTOS
-import br.com.zup.simcitysaojoao.R
-import br.com.zup.simcitysaojoao.apresentacao.ApresentacaoFragment
 import br.com.zup.simcitysaojoao.databinding.ActivityMainBinding
-import br.com.zup.simcitysaojoao.produtos.CadastroDeProdutosFragment
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

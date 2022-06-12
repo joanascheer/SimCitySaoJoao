@@ -27,4 +27,8 @@
     <string name="divisor_txt">-</string>
     <string name="voltar_txt">Voltar</string>
     <string name="btn_voltar_txt_description">Seta branca á esquerda indicando um botão de voltar à tela anterior</string>
+    <string name="cadastro_label_txt">Cadastro</string>
+    <string name="valor_total_label_txt">Valor total</string>
+    <string name="detalhes_label_txt">Detalhes do produto</string>
+    <string name="produtos_label_txt">Produtos</string>
 </resources>

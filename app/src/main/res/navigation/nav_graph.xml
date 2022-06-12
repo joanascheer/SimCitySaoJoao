@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/apresentacaoFragment"
         android:name="br.com.zup.simcitysaojoao.apresentacao.ApresentacaoFragment"
-        android:label="fragment_apresentacao"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_apresentacao" >
         <action
             android:id="@+id/action_apresentacaoFragment_to_cadastroDeProdutosFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/cadastroDeProdutosFragment"
         android:name="br.com.zup.simcitysaojoao.produtos.CadastroDeProdutosFragment"
-        android:label="fragment_cadastro_de_produtos"
+        android:label="@string/produtos_label_txt"
         tools:layout="@layout/fragment_cadastro_de_produtos" >
         <action
             android:id="@+id/action_cadastroDeProdutosFragment_to_listaDeProdutosFragment"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/listaDeProdutosFragment"
         android:name="br.com.zup.simcitysaojoao.produtos.ListaDeProdutosFragment"
-        android:label="fragment_lista_de_produtos"
+        android:label="@string/produtos_label_txt"
         tools:layout="@layout/fragment_lista_de_produtos" >
         <action
             android:id="@+id/action_listaDeProdutosFragment_to_detalhesDeProdutosFragment"
@@ -41,7 +41,7 @@
     <fragment
         android:id="@+id/detalhesDeProdutosFragment"
         android:name="br.com.zup.simcitysaojoao.produtos.DetalhesDeProdutosFragment"
-        android:label="fragment_detalhes_de_produtos"
+        android:label="@string/detalhes_label_txt"
         tools:layout="@layout/fragment_detalhes_de_produtos" >
         <action
             android:id="@+id/action_detalhesDeProdutosFragment_to_valorTotalFragment"
@@ -50,7 +50,7 @@
     <fragment
         android:id="@+id/valorTotalFragment"
         android:name="br.com.zup.simcitysaojoao.produtos.ValorTotalFragment"
-        android:label="fragment_valor_total"
+        android:label="@string/valor_total_label_txt"
         tools:layout="@layout/fragment_valor_total" >
         <action
             android:id="@+id/action_valorTotalFragment_to_cadastroDeProdutosFragment"
