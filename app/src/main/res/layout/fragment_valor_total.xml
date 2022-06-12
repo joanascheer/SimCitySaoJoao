@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/green"
-        android:text="@string/cadastrar_novo_produto_btn_txt"
+        android:text="@string/ver_produtos_txt_btn"
         android:layout_marginVertical="@dimen/margin_20"
         app:layout_constraintTop_toBottomOf="@id/btnCadastrarNovoProduto"
         app:layout_constraintStart_toStartOf="parent"/>

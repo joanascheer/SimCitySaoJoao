@@ -7,7 +7,7 @@ import br.com.zup.simcitysaojoao.databinding.ProdutoItemBinding
 import br.com.zup.simcitysaojoao.model.Produto
 
 class ProdutoAdapter(
-    private var listaProdutos: MutableList<Produto>,
+    private var listaProdutos: ArrayList<Produto>,
     private val clickProduto:(produto: Produto) -> Unit,
 ) : RecyclerView.Adapter<ProdutoAdapter.ViewHolder>() {
 
@@ -27,7 +27,7 @@ class ProdutoAdapter(
     override fun getItemCount(): Int = listaProdutos.size
 
     //
-    fun atualizarListaProdutos(novaListaProduto: MutableList<Produto>) {
+    fun atualizarListaProdutos(novaListaProduto: ArrayList<Produto>) {
         if (listaProdutos.size == 0) {
             listaProdutos = novaListaProduto
         } else {

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import br.com.zup.simcitysaojoao.MSG_PRODUTO_ADICIONADO
 import br.com.zup.simcitysaojoao.MSG_PRODUTO_FAVORITADO
 import br.com.zup.simcitysaojoao.PRODUCT_KEY
 import br.com.zup.simcitysaojoao.databinding.FragmentDetalhesDeProdutosBinding

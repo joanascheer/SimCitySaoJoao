@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.compose.runtime.ReusableComposeNode
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -22,7 +21,7 @@ class CadastroDeProdutosFragment : Fragment() {
     private lateinit var receita: String
 
     //
-    private val listaProdutos = mutableListOf<Produto>()
+    private val listaProdutos = arrayListOf<Produto>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,22 +50,19 @@ class CadastroDeProdutosFragment : Fragment() {
     private fun adidionarProdutoLista() {
         mensagemSucesso()
         recuperarInformacoes()
-if (verificarCampos()) {
-    val produto = Produto(
-        nome,
-        quantidade.toInt(),
-        valor.toDouble(),
-        receita
-    )
-    listaProdutos.add(produto)
-    limparCampoInformacoes()
-
-}
-
+        if (verificarCampos()) {
+            val produto = Produto(
+                nome,
+                quantidade.toInt(),
+                valor.toDouble(),
+                receita
+            )
+            listaProdutos.add(produto)
+            limparCampoInformacoes()
+        }
     }
 
     private fun clickBtnAdicionar() {
-
         adidionarProdutoLista()
     }
 
@@ -77,18 +73,12 @@ if (verificarCampos()) {
     }
 
     private fun clickBtnValorTotal() {
-        //aqui vou mandar alguma coisa para calcular la. acho
+        val bundle = bundleOf(LIST_KEY to listaProdutos)
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_cadastroDeProdutosFragment_to_valorTotalFragment)
+            .navigate(R.id.action_cadastroDeProdutosFragment_to_valorTotalFragment, bundle)
+        //aqui vou mandar alguma coisa para calcular la. acho
     }
 
-//    private fun enviarProduto() {
-//        mensagemSucesso()
-//        val produto = recuperarInformacoes()
-//        val bundle = bundleOf(PRODUCT_KEY to produto)
-//        NavHostFragment.findNavController(this)
-//            .navigate(R.id.action_cadastroDeProdutosFragment_to_listaDeProdutosFragment, bundle)
-//    }
 
     private fun mensagemSucesso() {
         Toast.makeText(
@@ -103,21 +93,6 @@ if (verificarCampos()) {
         quantidade = binding.etQuantidadeProduto.text.toString()
         valor = binding.etValorProduto.text.toString()
         receita = binding.etReceitaProduto.text.toString()
-
-
-
-//        if (nome.isNotEmpty() && quantidade.isNotEmpty() && valor.isNotEmpty() && receita.isNotEmpty()) {
-//            limparCampoInformacoes()
-//            return Produto(
-//                nome,
-//                quantidade.toInt(),
-//                valor.toDouble(),
-//                receita
-//            )
-//        } else {
-//            exibirMensagemErro()
-//        }
-//        return null
     }
 
     //

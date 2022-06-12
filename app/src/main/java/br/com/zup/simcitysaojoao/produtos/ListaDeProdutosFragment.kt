@@ -33,18 +33,6 @@ class ListaDeProdutosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         receberListaEnviada()
-        //inserirProdutoNaLista()
-    }
-
-    private fun inserirProdutoNaLista(): MutableList<Produto> {
-        val produto = arguments?.getParcelable<Produto>(PRODUCT_KEY)
-        val listaProdutos = mutableListOf<Produto>()
-        if (produto != null) {
-            listaProdutos.add(produto)
-        }
-        produtoAdapter.atualizarListaProdutos(listaProdutos)
-        exibirRecyclerView()
-        return listaProdutos
     }
 
     private fun exibirRecyclerView() {
@@ -60,14 +48,16 @@ class ListaDeProdutosFragment : Fragment() {
 
     private fun receberListaEnviada() {
         val listaDeProdutos = arguments?.getParcelableArrayList<Produto>(LIST_KEY)
-        if (listaDeProdutos!=null) {
+        if (listaDeProdutos != null) {
             atualizarListaProdutos(listaDeProdutos)
         }
     }
 
-    fun atualizarListaProdutos(listaDeProdutos: MutableList<Produto>) {
-       produtoAdapter.atualizarListaProdutos(listaDeProdutos)
+    private fun atualizarListaProdutos(listaDeProdutos: ArrayList<Produto>) {
+        produtoAdapter.atualizarListaProdutos(listaDeProdutos)
         exibirRecyclerView()
     }
+
+
 
 }
