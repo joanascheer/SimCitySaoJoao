@@ -14,13 +14,14 @@ import br.com.zup.simcitysaojoao.model.Produto
 
 class CadastroDeProdutosFragment : Fragment() {
     private lateinit var binding: FragmentCadastroDeProdutosBinding
+    val listaRecebidaValorTotal = arguments?.getParcelableArrayList<Produto>(LIST_KEY)
 
     private lateinit var nome: String
     private lateinit var quantidade: String
     private lateinit var valor: String
     private lateinit var receita: String
 
-    //
+
     private val listaProdutos = arrayListOf<Produto>()
 
     override fun onCreateView(
@@ -35,7 +36,7 @@ class CadastroDeProdutosFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnCadastrarProduto.setOnClickListener {
-            //
+
             clickBtnAdicionar()
         }
         binding.btnVerProdutos.setOnClickListener {
@@ -68,15 +69,17 @@ class CadastroDeProdutosFragment : Fragment() {
 
     private fun clickBtnVerLista() {
         val bundle = bundleOf(LIST_KEY to listaProdutos)
+
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_cadastroDeProdutosFragment_to_listaDeProdutosFragment, bundle)
     }
 
     private fun clickBtnValorTotal() {
+
         val bundle = bundleOf(LIST_KEY to listaProdutos)
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_cadastroDeProdutosFragment_to_valorTotalFragment, bundle)
-        //aqui vou mandar alguma coisa para calcular la. acho
+
     }
 
 

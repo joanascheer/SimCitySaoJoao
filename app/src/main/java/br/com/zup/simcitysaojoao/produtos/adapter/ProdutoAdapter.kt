@@ -29,19 +29,21 @@ class ProdutoAdapter(
     //
     fun atualizarListaProdutos(novaListaProduto: ArrayList<Produto>) {
         if (listaProdutos.size == 0) {
-            listaProdutos = novaListaProduto
-        } else {
+            //listaProdutos = novaListaProduto
             listaProdutos.addAll(novaListaProduto)
         }
         notifyDataSetChanged()
     }
 
+    /*quando eu clico em cadastrar produto na tela final ele precisa levar junto a lista para tela cadastro
+    * ou mandar pra lista de produto frag e atualizar*/
 
     class ViewHolder(val binding: ProdutoItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun exibirDados(produto: Produto) {
             binding.tvQuantidadeProdutosCv.text = produto.getQuantidade().toString()
             binding.tvNomeProdutosCv.text = produto.getNome()
+
         }
 
     }

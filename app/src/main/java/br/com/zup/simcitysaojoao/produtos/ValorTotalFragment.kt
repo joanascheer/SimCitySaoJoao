@@ -17,7 +17,6 @@ class ValorTotalFragment : Fragment() {
     private lateinit var binding: FragmentValorTotalBinding
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,11 +29,12 @@ class ValorTotalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //lista recebida de cadastro
         val listaProdutos = arguments?.getParcelableArrayList<Produto>(LIST_KEY)
         calcularValorTotal(listaProdutos)
 
         binding.btnCadastrarNovoProduto.setOnClickListener {
-            navegarParaCadastroProdutos()
+            navegarParaCadastroProdutos(listaProdutos)
         }
 
         binding.btnVerProdutos.setOnClickListener {
@@ -42,7 +42,8 @@ class ValorTotalFragment : Fragment() {
         }
     }
 
-    private fun navegarParaCadastroProdutos() {
+    private fun navegarParaCadastroProdutos(listaProdutos: ArrayList<Produto>?) {
+        val bundle = bundleOf(LIST_KEY to listaProdutos)
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_valorTotalFragment_to_cadastroDeProdutosFragment)
     }

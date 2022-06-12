@@ -50,7 +50,12 @@ class ListaDeProdutosFragment : Fragment() {
         val listaDeProdutos = arguments?.getParcelableArrayList<Produto>(LIST_KEY)
         if (listaDeProdutos != null) {
             atualizarListaProdutos(listaDeProdutos)
+        //listaDeProdutos.addAll(lista vinda de valor total)
         }
+    }
+
+    private fun atualizarListaValorTotal() {
+
     }
 
     private fun atualizarListaProdutos(listaDeProdutos: ArrayList<Produto>) {
