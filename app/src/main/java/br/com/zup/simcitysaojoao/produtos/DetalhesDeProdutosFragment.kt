@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import br.com.zup.simcitysaojoao.MSG_PRODUTO_FAVORITADO
 import br.com.zup.simcitysaojoao.PRODUCT_KEY
+import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentDetalhesDeProdutosBinding
+import br.com.zup.simcitysaojoao.home.HomeActivity
 import br.com.zup.simcitysaojoao.model.Produto
 
 class DetalhesDeProdutosFragment : Fragment() {
@@ -23,6 +25,9 @@ class DetalhesDeProdutosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as HomeActivity).supportActionBar?.title = getString(R.string.detalhes_label_txt)
+
         recuperarDadosProduto()
 
         binding.btnFavoritar.setOnClickListener {

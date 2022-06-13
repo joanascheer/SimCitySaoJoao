@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.simcitysaojoao.*
 import br.com.zup.simcitysaojoao.databinding.FragmentCadastroDeProdutosBinding
+import br.com.zup.simcitysaojoao.home.HomeActivity
 import br.com.zup.simcitysaojoao.model.Produto
 
 class CadastroDeProdutosFragment : Fragment() {
@@ -32,6 +33,9 @@ class CadastroDeProdutosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as HomeActivity).supportActionBar?.title = getString(R.string.produtos_label_txt)
+
 
         receberListaDeValorTotal()
 

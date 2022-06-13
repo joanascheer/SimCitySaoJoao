@@ -12,6 +12,7 @@ import br.com.zup.simcitysaojoao.LIST_KEY
 import br.com.zup.simcitysaojoao.PRODUCT_KEY
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentListaDeProdutosBinding
+import br.com.zup.simcitysaojoao.home.HomeActivity
 import br.com.zup.simcitysaojoao.model.Produto
 import br.com.zup.simcitysaojoao.produtos.adapter.ProdutoAdapter
 
@@ -32,6 +33,9 @@ class ListaDeProdutosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as HomeActivity).supportActionBar?.title = getString(R.string.produtos_label_txt)
+
 
         receberListaEnviada()
     }

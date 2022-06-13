@@ -11,6 +11,7 @@ import br.com.zup.simcitysaojoao.LIST_KEY
 import br.com.zup.simcitysaojoao.LIST_KEY_VALOR_TOTAL
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentValorTotalBinding
+import br.com.zup.simcitysaojoao.home.HomeActivity
 import br.com.zup.simcitysaojoao.model.Produto
 
 class ValorTotalFragment : Fragment() {
@@ -26,6 +27,8 @@ class ValorTotalFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as HomeActivity).supportActionBar?.title = getString(R.string.valor_total_label_txt)
 
         val listaProdutos = arguments?.getParcelableArrayList<Produto>(LIST_KEY)
         calcularValorTotal(listaProdutos)
@@ -61,4 +64,5 @@ class ValorTotalFragment : Fragment() {
     }
 
     private fun formatarValorTotal(valorTotal: Double) = "%.2f".format(valorTotal)
+
 }

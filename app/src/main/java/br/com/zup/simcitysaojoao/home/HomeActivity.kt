@@ -30,6 +30,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun customAppBar() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = PRODUTOS
     }
+
+
 }

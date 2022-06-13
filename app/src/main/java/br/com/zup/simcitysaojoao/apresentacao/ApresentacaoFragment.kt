@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentApresentacaoBinding
+import br.com.zup.simcitysaojoao.home.HomeActivity
 
 class ApresentacaoFragment : Fragment() {
     private lateinit var binding: FragmentApresentacaoBinding
@@ -21,6 +22,9 @@ class ApresentacaoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as HomeActivity).supportActionBar?.title = getString(R.string.app_name)
+
         binding.btnIrProdutos.setOnClickListener {
             irParaCadastroProdutos()
         }
