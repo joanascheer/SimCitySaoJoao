@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.simcitysaojoao.LIST_KEY
+import br.com.zup.simcitysaojoao.LIST_KEY_VALOR_TOTAL
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentValorTotalBinding
 import br.com.zup.simcitysaojoao.model.Produto
@@ -26,12 +27,11 @@ class ValorTotalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //lista recebida de cadastro
         val listaProdutos = arguments?.getParcelableArrayList<Produto>(LIST_KEY)
         calcularValorTotal(listaProdutos)
 
         binding.btnCadastrarNovoProduto.setOnClickListener {
-            navegarParaCadastroProdutos()
+            navegarParaCadastroProdutos(listaProdutos)
         }
 
         binding.btnVerProdutos.setOnClickListener {
@@ -39,9 +39,10 @@ class ValorTotalFragment : Fragment() {
         }
     }
 
-    private fun navegarParaCadastroProdutos() {
+    private fun navegarParaCadastroProdutos(listaProdutos: ArrayList<Produto>?) {
+        val bundle = bundleOf(LIST_KEY_VALOR_TOTAL to listaProdutos)
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_valorTotalFragment_to_cadastroDeProdutosFragment)
+            .navigate(R.id.action_valorTotalFragment_to_cadastroDeProdutosFragment, bundle)
     }
 
     private fun navegarParaVerProdutos(listaProdutos: ArrayList<Produto>?) {
@@ -56,7 +57,7 @@ class ValorTotalFragment : Fragment() {
             valorTotal += produto.getValorUnitario() * produto.getQuantidade()
         }
         binding.tvValorTotal.text =
-            "total R$ ${formatarValorTotal(valorTotal)}"
+            "O valor total dos produtos é de R$ ${formatarValorTotal(valorTotal)}"
     }
 
     private fun formatarValorTotal(valorTotal: Double) = "%.2f".format(valorTotal)

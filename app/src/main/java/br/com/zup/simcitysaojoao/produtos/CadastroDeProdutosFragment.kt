@@ -20,7 +20,7 @@ class CadastroDeProdutosFragment : Fragment() {
     private lateinit var valor: String
     private lateinit var receita: String
 
-    private val listaProdutos = arrayListOf<Produto>()
+    private var listaProdutos = arrayListOf<Produto>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +33,8 @@ class CadastroDeProdutosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        receberListaDeValorTotal()
+
         binding.btnCadastrarProduto.setOnClickListener {
             clickBtnAdicionar()
         }
@@ -44,6 +46,12 @@ class CadastroDeProdutosFragment : Fragment() {
         }
     }
 
+    private fun receberListaDeValorTotal() {
+        val listaRecebida = arguments?.getParcelableArrayList<Produto>(LIST_KEY_VALOR_TOTAL)
+        listaRecebida?.let {
+            listaProdutos = it
+        }
+    }
 
     private fun adidionarProdutoLista() {
         mensagemSucesso()
