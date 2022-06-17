@@ -7,7 +7,6 @@
     android:layout_margin="@dimen/margin_16"
     tools:context=".produtos.DetalhesDeProdutosFragment">
 
-
     <ImageView
         android:id="@+id/ivCarrinhoComprasDetalhe"
         android:layout_width="@dimen/size_80"
@@ -30,8 +29,8 @@
         android:text="@string/nome_do_produto_text" />
 
     <TextView
-        android:id="@+id/tvQuantidadeProdutoTelaDetalhes"
-        android:layout_width="match_parent"
+        android:id="@+id/tvNomeQuantidadeProdutoTelaDetalhes"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/quantidade_txt"
         app:layout_constraintTop_toBottomOf="@id/ivCarrinhoComprasDetalhe"
@@ -41,8 +40,20 @@
         android:textSize="@dimen/text_size_12"/>
 
     <TextView
-        android:id="@+id/tvValorProdutoTelaDetalhes"
-        android:layout_width="match_parent"
+        android:id="@+id/tvQuantidadeProdutoTelaDetalhes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/zero"
+        android:layout_marginStart="@dimen/margin_2"
+        app:layout_constraintTop_toBottomOf="@id/ivCarrinhoComprasDetalhe"
+        app:layout_constraintStart_toEndOf="@id/tvNomeQuantidadeProdutoTelaDetalhes"
+        android:layout_marginVertical="@dimen/margin_30"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_12"/>
+
+    <TextView
+        android:id="@+id/tvNomeValorProdutoTelaDetalhes"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/valor_unitario_txt"
         android:layout_marginVertical="@dimen/margin_8"
@@ -52,8 +63,32 @@
         android:textSize="@dimen/text_size_12"/>
 
     <TextView
+        android:id="@+id/tvValorProdutoTelaDetalhes"
+        android:layout_width="0dp"
+        android:layout_marginStart="@dimen/margin_2"
+        android:layout_height="wrap_content"
+        android:text="@string/zero"
+        android:layout_marginVertical="@dimen/margin_8"
+        app:layout_constraintTop_toBottomOf="@id/tvQuantidadeProdutoTelaDetalhes"
+        app:layout_constraintStart_toEndOf="@id/tvNomeValorProdutoTelaDetalhes"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_12"/>
+
+    <TextView
         android:id="@+id/tvReceitaProdutoTelaDetalhes"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/receitinha_aqui"
+        android:layout_marginVertical="@dimen/margin_8"
+        android:layout_marginStart="@dimen/margin_2"
+        app:layout_constraintTop_toBottomOf="@id/tvValorProdutoTelaDetalhes"
+       app:layout_constraintStart_toEndOf="@id/tvNomeReceitaProdutoTelaDetalhes"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_12"/>
+
+    <TextView
+        android:id="@+id/tvNomeReceitaProdutoTelaDetalhes"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/receita_txt"
         android:layout_marginVertical="@dimen/margin_8"

@@ -44,7 +44,7 @@ class CadastroDeProdutosFragment : Fragment() {
 
         binding.btnVerProdutos.setOnClickListener {
             if (listaProdutos.isEmpty()) {
-                Toast.makeText(context,"Sua lista está vazia. Adicione produtos para continuar", 2000).show()
+                Toast.makeText(context,getString(R.string.lista_vazia), 2000).show()
             } else {
                 clickBtnVerLista()
             }

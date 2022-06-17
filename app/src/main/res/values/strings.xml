@@ -31,4 +31,7 @@
     <string name="valor_total_label_txt">Valor total</string>
     <string name="detalhes_label_txt">Detalhes do produto</string>
     <string name="produtos_label_txt">Produtos</string>
+    <string name="lista_vazia">Sua lista está vazia. Adicione produtos para continuar</string>
+    <string name="zero">0</string>
+    <string name="receitinha_aqui">Receitinha aqui</string>
 </resources>
