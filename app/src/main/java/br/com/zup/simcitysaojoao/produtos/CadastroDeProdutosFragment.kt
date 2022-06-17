@@ -36,19 +36,25 @@ class CadastroDeProdutosFragment : Fragment() {
 
         (activity as HomeActivity).supportActionBar?.title = getString(R.string.produtos_label_txt)
 
-
         receberListaDeValorTotal()
 
         binding.btnCadastrarProduto.setOnClickListener {
             clickBtnAdicionar()
         }
+
         binding.btnVerProdutos.setOnClickListener {
-            clickBtnVerLista()
+            if (listaProdutos.isEmpty()) {
+                Toast.makeText(context,"Sua lista está vazia. Adicione produtos para continuar", 2000).show()
+            } else {
+                clickBtnVerLista()
+            }
+
         }
         binding.btnValorTotal.setOnClickListener {
             clickBtnValorTotal()
         }
     }
+
 
     private fun receberListaDeValorTotal() {
         val listaRecebida = arguments?.getParcelableArrayList<Produto>(LIST_KEY_VALOR_TOTAL)
